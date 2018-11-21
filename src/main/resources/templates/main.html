@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <table>
+            <tr>
+                <th>Numer</th>
+                <th>Znak</th>
+                <th>Temperatura</th>
+                <th>Wiadomosc</th>
+            </tr>
+            <tr th:each="trigger : ${triggers}">
+                <td th:text="${trigger.getNumber()}"></td>
+                <td th:text="${trigger.getTriggerType().value()}"></td>
+                <td th:text="${trigger.getTemperature()}"></td>
+                <td th:text="${trigger.getMessage()}"></td>
+            </tr>
+        </table>
+</body>
+</html>
