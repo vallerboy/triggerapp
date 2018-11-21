@@ -23,6 +23,7 @@ public class AlertEntity {
     @Column(name = "char_trigger")
     @Enumerated(EnumType.STRING)
     private TriggerType triggerType;
+    private String city;
 
 
     public AlertEntity(AlertForm alertForm){
@@ -30,6 +31,7 @@ public class AlertEntity {
         this.phone = alertForm.getPhone();
         this.temperature =alertForm.getTemperature();
         this.triggerType = alertForm.getTriggerType();
+        this.city = alertForm.getCity();
     }
 
 }

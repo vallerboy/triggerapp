@@ -6,6 +6,7 @@
 </head>
 <body>
      <div style="text-align: center;">
+         <h1 th:if="${hasErrors != null}">Form zawiera błędy</h1>
         <table border="1" style="margin: auto">
             <tr>
                 <th>Numer</th>
@@ -25,6 +26,7 @@
              <input type="text" th:field="*{phone}" placeholder="Telefon"/>
              <input type="number" th:field="*{temperature}" placeholder="Temperatura"/>
              <input type="text" th:field="*{message}" placeholder="Wiadomosc"/>
+             <input type="text" th:field="*{city}" placeholder="Miasto"/>
              <select th:field="*{triggerType}">
                  <option th:each="state :
                   ${T(pl.oskarpolak.triggerapp.models.entities.AlertEntity.TriggerType).values()}"

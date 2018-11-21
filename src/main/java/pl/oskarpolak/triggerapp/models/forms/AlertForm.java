@@ -16,5 +16,6 @@ public class AlertForm {
     private String message;
     private int temperature;
     private AlertEntity.TriggerType triggerType;
+    private String city;
 
 }
