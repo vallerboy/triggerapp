@@ -26,6 +26,8 @@ public class AlertEntity {
     private String city;
 
 
+    public AlertEntity() { }
+
     public AlertEntity(AlertForm alertForm){
         this.message = alertForm.getMessage();
         this.phone = alertForm.getPhone();

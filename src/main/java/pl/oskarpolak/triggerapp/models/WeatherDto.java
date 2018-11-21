@@ -19,7 +19,7 @@ public class WeatherDto {
         private double temperature;
 
         public double getTemperature() {
-            return temperature;
+            return temperature - 273.15;
         }
     }
 

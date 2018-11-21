@@ -13,12 +13,14 @@
                 <th>Znak</th>
                 <th>Temperatura</th>
                 <th>Wiadomosc</th>
+                <th>Miasto</th>
             </tr>
             <tr th:each="alert : ${alerts}">
                 <td th:text="${alert.getPhone()}"></td>
                 <td th:text="${alert.getTriggerType().name()}"></td>
                 <td th:text="${alert.getTemperature()}"></td>
                 <td th:text="${alert.getMessage()}"></td>
+                <td th:text="${alert.getCity()}"></td>
             </tr>
         </table>
 
