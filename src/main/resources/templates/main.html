@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -20,6 +20,22 @@
                 <td th:text="${alert.getMessage()}"></td>
             </tr>
         </table>
+
+         <form action="/" method="post" th:object="${formAlert}">
+             <input type="text" th:field="*{phone}" placeholder="Telefon"/>
+             <input type="number" th:field="*{temperature}" placeholder="Temperatura"/>
+             <input type="text" th:field="*{message}" placeholder="Wiadomosc"/>
+             <select th:field="*{triggerType}">
+                 <option th:each="state :
+                  ${T(pl.oskarpolak.triggerapp.models.entities.AlertEntity.TriggerType).values()}"
+                         th:text="${state.name()}"
+                         th:value="${state.name()}"></option>
+             </select>
+
+             <input type="submit" value="WYslij">
+         </form>
+
+
      </div>
 </body>
 </html>
