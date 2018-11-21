@@ -11,6 +11,8 @@ import pl.oskarpolak.triggerapp.models.entities.AlertEntity;
 import pl.oskarpolak.triggerapp.models.forms.AlertForm;
 import pl.oskarpolak.triggerapp.models.services.AlertService;
 
+import javax.validation.Valid;
+
 @Controller
 public class MainController {
 
@@ -31,8 +33,8 @@ public class MainController {
     }
 
     @PostMapping("/")
-    public String index(@ModelAttribute AlertForm alertForm){
-        System.out.println(alertForm);
+    public String index(@ModelAttribute @Valid AlertForm alertForm){
+        alertService.saveAlert(alertForm);
         return "redirect:/";
     }
 

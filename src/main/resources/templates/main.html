@@ -28,8 +28,8 @@
              <select th:field="*{triggerType}">
                  <option th:each="state :
                   ${T(pl.oskarpolak.triggerapp.models.entities.AlertEntity.TriggerType).values()}"
-                         th:text="${state.name()}"
-                         th:value="${state.name()}"></option>
+                                                                       th:text="${state.name()}"
+                                                                       th:value="${state.name()}"></option>
              </select>
 
              <input type="submit" value="WYslij">

@@ -3,6 +3,7 @@ package pl.oskarpolak.triggerapp.models.entities;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
+import pl.oskarpolak.triggerapp.models.forms.AlertForm;
 
 import javax.persistence.*;
 
@@ -22,4 +23,13 @@ public class AlertEntity {
     @Column(name = "char_trigger")
     @Enumerated(EnumType.STRING)
     private TriggerType triggerType;
+
+
+    public AlertEntity(AlertForm alertForm){
+        this.message = alertForm.getMessage();
+        this.phone = alertForm.getPhone();
+        this.temperature =alertForm.getTemperature();
+        this.triggerType = alertForm.getTriggerType();
+    }
+
 }

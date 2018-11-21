@@ -3,6 +3,7 @@ package pl.oskarpolak.triggerapp.models.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.oskarpolak.triggerapp.models.entities.AlertEntity;
+import pl.oskarpolak.triggerapp.models.forms.AlertForm;
 import pl.oskarpolak.triggerapp.models.repositories.AlertRepository;
 
 import java.util.List;
@@ -18,5 +19,9 @@ public class AlertService {
 
     public List<AlertEntity> getAllAlerts(){
         return alertRepository.findAll();
+    }
+
+    public void saveAlert(AlertForm alertForm){
+        alertRepository.save(new AlertEntity(alertForm));
     }
 }
