@@ -7,6 +7,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import pl.oskarpolak.triggerapp.models.entities.AlertEntity;
 import pl.oskarpolak.triggerapp.models.services.AlertService;
+import pl.oskarpolak.triggerapp.models.services.SmsService;
 import pl.oskarpolak.triggerapp.models.services.WeatherService;
 
 @Component
@@ -15,14 +16,16 @@ public class AlertJob {
 
     final WeatherService weatherService;
     final AlertService alertService;
+    final SmsService smsService;
 
     @Autowired
-    public AlertJob(WeatherService weatherService, AlertService alertService) {
+    public AlertJob(WeatherService weatherService, AlertService alertService, SmsService smsService) {
         this.weatherService = weatherService;
         this.alertService = alertService;
+        this.smsService = smsService;
     }
 
-    @Scheduled(initialDelay = 5000, fixedRate = 1000 * 60)
+    @Scheduled(initialDelay = 1000, fixedRate = 5000 * 60)
     public void checkWeatherAndAlertsAndSendSms() {
         for (AlertEntity alert : alertService.getAllAlerts()) {
             WeatherDto weather = weatherService.loadWeatherForCity(alert.getCity());
@@ -62,7 +65,7 @@ public class AlertJob {
 
 
     private void sendSms(AlertEntity alertEntity){
-
+        smsService.sendSms(alertEntity.getPhone(), alertEntity.getMessage());
     }
 
 }
