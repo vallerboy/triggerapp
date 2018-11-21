@@ -5,19 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-        <table>
+     <div style="text-align: center;">
+        <table border="1" style="margin: auto">
             <tr>
                 <th>Numer</th>
                 <th>Znak</th>
                 <th>Temperatura</th>
                 <th>Wiadomosc</th>
             </tr>
-            <tr th:each="trigger : ${triggers}">
-                <td th:text="${trigger.getNumber()}"></td>
-                <td th:text="${trigger.getTriggerType().value()}"></td>
-                <td th:text="${trigger.getTemperature()}"></td>
-                <td th:text="${trigger.getMessage()}"></td>
+            <tr th:each="alert : ${alerts}">
+                <td th:text="${alert.getPhone()}"></td>
+                <td th:text="${alert.getTriggerType().name()}"></td>
+                <td th:text="${alert.getTemperature()}"></td>
+                <td th:text="${alert.getMessage()}"></td>
             </tr>
         </table>
+     </div>
 </body>
 </html>
